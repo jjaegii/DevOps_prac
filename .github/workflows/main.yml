@@ -31,7 +31,6 @@ jobs:
         echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
         docker push jjaegii/draw:latest 
         docker push jjaegii/detect:latest
-        docker build -t detect:latest -f Dockerfile.detect .
 
     - name: Code style check (PEP8)
       uses: ricardochaves/python-lint@v1.1.0
