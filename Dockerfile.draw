@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+LABEL maintainer "jjaegii <hn06038@gmail.com>"
+
+RUN apt-get update && apt-get install python3 python3-pip -y
+WORKDIR /app
+
+COPY draw.py .
+
+ENTRYPOINT [ "python3" ]
+CMD ["draw.py"]
