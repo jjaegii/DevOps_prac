@@ -21,8 +21,8 @@ jobs:
 
     - name: Run tests
       run: |
-        python draw_test.py
-        python detect_test.py
+        python -m unittest draw_test.py
+        python -m unittest detect_test.py
 
     - name: Build and push Docker images
       run: |
