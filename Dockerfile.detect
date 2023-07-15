@@ -1,17 +1,17 @@
-FROM ubuntu:20.04
+FROM ultralytics/ultralytics:latest-cpu
 LABEL maintainer "jjaegii <hn06038@gmail.com>"
 
-RUN apt-get update && apt-get install python3 python3-pip -y
+RUN apt-get update && apt-get install python3 python3-pip libgl1-mesa-glx -y
 ENV IMAGE_DIR images
 WORKDIR /app
 COPY requirements.txt .
-# RUN pip3 install -r requirements.txt
-RUN pip install flask ultralytics
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 COPY detect.py .
 COPY templates/* templates/
 COPY test_img.jpg .
 
-COPY model/yolov8n.pt model/.
+COPY model/yolov8n.pt model/
 ENTRYPOINT [ "python3" ]
 CMD ["detect.py"]
