@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# pre-commit 훅 스크립트
+
+echo "Running draw_test.py Unit Test..."
+python3 -m unittest draw_test.py
+
+if [ $? -ne 0 ]; then
+    echo "draw_test.py failed. Commit aborted."
+    exit 1
+fi
+
+echo "Running detect_test.py Unit Test..."
+python3 -m unittest detect_test.py
+
+if [ $? -ne 0 ]; then
+    echo "detect_test.py failed. Commit aborted."
+    exit 1
+fi
+
+exit 0
