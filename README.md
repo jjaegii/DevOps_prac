@@ -72,7 +72,7 @@
         - Python 3.11.2
     - 빌드
 
-        ![주의]빌드 시 10분가량 소모 
+        ![주의]빌드 시 5분가량 소모
         ```bash
         $ docker build -t detect:latest -f Dockerfile.detect .
         ```
